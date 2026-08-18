@@ -50,6 +50,18 @@ button {
   font-family: inherit;
 }
 
+input, textarea, select {
+  font-size: 16px;
+}
+
+button, a {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Utilitários */
 .section-label {
   color: var(--color-primary);

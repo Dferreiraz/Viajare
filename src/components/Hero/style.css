@@ -14,8 +14,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), 
-              url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;
   z-index: -1;
 }
 
@@ -93,7 +93,7 @@
 .search-bar-container {
   position: relative;
   z-index: 10;
-  margin-top: -4rem;
+  margin-top: -4rem; /* Mantido apenas para desktop/tablet */
   padding: 0 2rem;
 }
 
@@ -158,26 +158,138 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+/* =========================================
+   TABLET (até 1024px) - Mantido como aprovado
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: 550px;
+  }
+
+  .hero-content {
+    padding: 0 1.5rem;
+  }
+
+  .search-bar-container {
+    margin-top: -2rem;
+    padding: 0 1.5rem;
+  }
+
   .search-bar {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
     padding: 1.5rem;
   }
 
+  .search-field:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
   .search-button {
+    grid-column: 1 / -1;
     width: 100%;
-    justify-content: center;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-actions {
+/* =========================================
+   CELULAR (até 768px) - Layout vertical limpo
+   ========================================= */
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto; /* Permite que a seção cresça conforme o conteúdo */
+    min-height: 100vh; /* Garante que ocupe pelo menos a tela toda */
+    padding: 6rem 0 3rem; /* Espaço no topo (para o header) e embaixo */
     flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-content {
+    padding: 0 1.5rem;
+    margin-bottom: 2.5rem; /* Empurra o formulário para baixo, sem sobrepor */
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    flex-direction: column; /* Botões empilhados ficam melhores no mobile */
     width: 100%;
+    gap: 0.75rem;
   }
 
   .hero-primary-btn,
   .hero-secondary-btn {
     width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .search-bar-container {
+    margin-top: 0; /* REMOVE totalmente a margem negativa que causava sobreposição */
+    padding: 0 1.5rem;
+    width: 100%;
+  }
+
+  .search-bar {
+    grid-template-columns: 1fr; /* Tudo em uma coluna só */
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .search-button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* =========================================
+   CELULAR PEQUENO (até 480px) - Ajustes finos
+   ========================================= */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 5rem 0 2rem;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .search-bar-container {
+    padding: 0 1rem;
+  }
+
+  .search-bar {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .search-label {
+    font-size: 0.8rem;
+  }
+
+  .search-input,
+  .search-select {
+    font-size: 0.95rem;
   }
 }
