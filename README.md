@@ -7,6 +7,7 @@
 <!-- ---------------------------------------------------------------------- -->
 
 <p align="center">
+•
  <a href="#-descrição-do-entregável">Descrição do Entregável</a> •
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-layout">Layout</a> • 
