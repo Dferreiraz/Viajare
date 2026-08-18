@@ -1,0 +1,141 @@
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: var(--transition-smooth);
+  padding: 1.5rem 0;
+}
+
+.main-header.scrolled {
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  padding: 1rem 0;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-white);
+  transition: var(--transition-smooth);
+}
+
+.main-header.scrolled .brand-logo {
+  color: var(--color-text-dark);
+}
+
+.navigation-menu {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+}
+
+.navigation-link {
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.main-header.scrolled .navigation-link {
+  color: var(--color-text-medium);
+}
+
+.navigation-link:hover {
+  color: var(--color-primary);
+}
+
+.navigation-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.navigation-link:hover::after {
+  width: 100%;
+}
+
+.header-action-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition-smooth);
+}
+
+.header-action-btn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  padding: 0.5rem;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--color-white);
+  transition: var(--transition-smooth);
+}
+
+.main-header.scrolled .mobile-menu-btn span {
+  background: var(--color-text-dark);
+}
+
+@media (max-width: 768px) {
+  .navigation-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--color-white);
+    flex-direction: column;
+    padding: 6rem 2rem 2rem;
+    gap: 2rem;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .navigation-menu.active {
+    right: 0;
+  }
+
+  .navigation-link {
+    color: var(--color-text-dark);
+    font-size: 1.125rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    z-index: 1001;
+  }
+}

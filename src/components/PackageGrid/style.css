@@ -1,0 +1,18 @@
+.package-section {
+  padding: 6rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+}
